@@ -4,31 +4,56 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "build": "npm run clean; tsc; npm run copy-views; npm run copy-views",     
-    "clean": "rm -rf dist",     
-    "copy-views": "cp -r src/views/ dist/views/",     
-    "start": "node dist/08-webapp.js", 
-    
+    "build": "npm run clean && tsc && npm run copy-views && npm run copy-views",
+    "clean": "rm -rf dist",
+    "copy-views": "cp -r src/views/dist",
+    "start": "nodemon ./index.ts",
+    "dev": "nodemon ./index.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.20",
-    "@types/pg": "^8.10.7",
-    "nodemon": "^3.0.1"
+    "@types/node": "^20.8.8",
+    "@types/pg": "^8.10.3",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@types/express-session": "^1.17.9",
+    "buffer-writer": "^2.0.0",
     "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-openid-connect": "^2.17.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "packet-reader": "^1.0.0",
     "pg": "^8.11.3",
+    "pg-cloudflare": "^1.1.1",
+    "pg-connection-string": "^2.6.2",
+    "pg-int8": "^1.0.1",
+    "pg-pool": "^3.6.1",
+    "pg-protocol": "^1.6.0",
+    "pg-types": "^2.2.0",
+    "pgpass": "^1.0.5",
+    "postgres-array": "^2.0.0",
+    "postgres-bytea": "^1.0.0",
+    "postgres-date": "^1.0.7",
+    "postgres-interval": "^1.2.0",
     "pug": "^3.0.2",
-    "typescript": "^5.2.2"
+    "split2": "^4.2.0",
+    "xtend": "^4.0.2"
   },
-
   "compilerOptions": {
-    "module": "CommonJS"
-  }
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true
+  },
+ 
+
 }
