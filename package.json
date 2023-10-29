@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon ./index.ts",
-    "build": "npm run clean; tsc;",
-    "clean": "rm -rf dist",
-    "copy-views": "cp -r src/views/ dist/views/",
+    
     "start": "nodemon ./index.ts"
   },
   "author": "",
