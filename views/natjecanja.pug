@@ -1,0 +1,26 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Web-aplikacija za praćenje natjecanja
+  body
+    h1 Popis natjecanja
+    table
+      thead
+        tr
+          th Naziv
+          th Natjecatelji
+          th Način bodovanja (p/n/i)
+          th Pogledaj detalje o natjecanju
+      tbody
+        each user in data
+          tr
+            td= user.ime
+            td= user.natjecatelji
+            td= user.bodovanje
+            td
+              a(href=`/raspored/${user.id}`, class='button', onclick=`handleClick(${user.id})`) Raspored odigravanja
+
+  a(href='/', class='button1') Povratak na početnu stranicu

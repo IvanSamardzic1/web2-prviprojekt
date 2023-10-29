@@ -1,0 +1,32 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Web-aplikacija za praćenje natjecanja
+    body
+    
+      p Ime natjecanja: #{ime.ime}
+      p Natjecatelji koji se natječu: #{natjecatelji.natjecatelji}
+      p Način bodovanja(pobjeda/remi/poraz): #{bodovanje.bodovanje}
+      h3 Raspored kola i susreta:
+      p Ako je polje "Rezultat" prazno, znači da se susret još nije odigrao.
+
+      table
+        thead
+          tr
+            th Prvi natjecatelj
+            th Drugi natjecatelj
+            th Rezultat
+            th Opcije   
+        tbody
+          each raspored in data
+            tr
+              td= raspored.tim1
+              td= raspored.tim2
+              td= raspored.rezultat
+              td
+                a(href=`/uredivanjeRezultata/${raspored.id}`, class='button', onclick=`handleClick(${raspored.id})`) Izmijeni ili unesi rezulat
+      div(style='margin-top: 20px;') 
+        a(href=`/loginNovi`, class='button') Povratak

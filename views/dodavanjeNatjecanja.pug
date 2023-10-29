@@ -1,0 +1,22 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Dodavanje natjecanja
+  body
+    h1 Unesite detalje natjecanja
+    form(action="/submit" method="post")
+      p
+        label(for="competitionName") Naziv natjecanja:
+        input#competitionName(type="text" name="competitionName" value=competitionNameValue required)
+      p
+        label(for="competitors") Popis natjecatelja (natjecatelji trebaju biti odvojeni točkom-zarezom ili novim redom i mora ih biti između 4 i 8):
+        textarea#competitors(name="competitors" rows="5" required)
+      p
+        label(for="scoringSystem") Sustav bodovanja (Molim u obliku pobjeda/remi/poraz):
+        input#scoringSystem(type="text" name="scoringSystem" required)
+      p
+        a(href='/submit') 
+        button Pošalji podatke

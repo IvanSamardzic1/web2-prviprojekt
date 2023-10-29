@@ -1,0 +1,14 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Web-aplikacija za praćenje natjecanja
+        h4 Ako imate svoj račun, možete se prijaviti.
+        h4 Kao neprijavljeni korisnik možete pregledati sva postojeća natjecanja i detalje o njima (raspored utakmica i rezultate)
+    body
+  
+
+    a(href='/loginNovi', class='button') Prijava
+    a(href='/prikazsvihnatjecanja', class='button') Prikaz postojećih natjecanja i njihovih rasporeda

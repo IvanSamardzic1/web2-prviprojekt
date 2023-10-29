@@ -1,0 +1,35 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Web-aplikacija za praćenje natjecanja
+
+    body
+    h1 Stranica autentificiranih korisnika.
+    p Dobrodošli, možete dodati novo natjecanje u bazu podataka i urediti podatke za određeno natjecanje.
+    p Dodavanjem novog natjecanja generira se raspored igranja kojeg vidimo klikom na gumb "Uređivanje i raspored po kolima".
+    a(href='/dodajNatjecanje', class='button') Dodaj novo natjecanje
+    
+    h1 Popis natjecanja
+    table
+      thead
+        tr
+          th Naziv
+          th Natjecatelji
+          th Način bodovanja (p/n/i)
+          th Pogledaj detalje o natjecanju
+      tbody
+        each user in data
+          tr
+            td= user.ime
+            td= user.natjecatelji.trim()
+            td= user.bodovanje
+            td
+              a(href=`/urediNatjecanje/${user.id}`, class='button', onclick=`handleClick(${user.id})`) Uređivanje i raspored po kolima
+
+    br
+    br
+    
+    a(href='/logout', class='button') Odjava

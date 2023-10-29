@@ -1,0 +1,9 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h2 Čestitamo! Uspješno ste dodali rezultat susreta u bazu.
+        p
+    a(href=`/urediNatjecanje/${data.natjecanje_id}`, class='button', onclick=`handleClick(${data.natjecanje_id})`) Povratak

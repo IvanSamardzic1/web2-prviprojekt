@@ -1,0 +1,21 @@
+extends layout
+
+block layout-content
+  div.View
+    div.Message
+      div.Title
+        h1 Web-aplikacija za praćenje natjecanja
+    body
+    h1 Promjena rezultata
+      p Ime prvog tima: #{data.tim1}
+      p Ime drugog tima: #{data.tim2}
+   
+    form(action=`/editiraj/${data.id}` method="post")
+      p
+        label(for="competitionName") Unesi rezultat:
+
+        input#noviRezultat(type="text" name="noviRezultat" value=noviRezultatValue required)
+      
+        a(href=`/editiraj/${data.id}`) 
+        button Pošalji podatke
+        
